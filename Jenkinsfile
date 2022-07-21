@@ -1,15 +1,13 @@
 pipeline { 
   agent any
-{
   tools{
 	nodejs 'Nodejs-18'
-  }  
-}
+  }
   
   stages { 
     stage('clone repository') {
       steps { 
-       git 'https://github.com/kkangwe/gallery.git'
+        git 'https://github.com/kkangwe/gallery.git'
       }
     }
      stage('Build the project') {
@@ -17,19 +15,19 @@ pipeline {
         sh 'echo "here we will Build"'
       }
     }
-stage('Install Dependencies') {
+    stage('Install Dependencies') {
       steps { 
-        sh 'echo "Here we Install"'
+        sh 'npm install'
       }
     }
     stage('Tests') {
       steps { 
-        sh 'echo "here we run tests"'
+        sh 'npm test'
       }
     }
 	stage('Deploy Application') {
       steps {
-              sh 'echo "deploy an APP"'
+             sh 'echo "deploy"'
               }
     }
   }
