@@ -27,7 +27,9 @@ pipeline {
     }
 	stage('Deploy Application') {
       steps {
-             sh 'echo "deploy"'
+             withCredentials([usernameColonPassword(credentialsId: 'Saline', variable: 'HEROKU_CREDENTIALS' )]){
+                    sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/saline-app.git master'
+                    }
               }
     }
   }
