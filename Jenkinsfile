@@ -9,7 +9,7 @@ pipeline {
   stages { 
     stage('clone repository') {
       steps { 
-       git'https://github.com/kkangwe/gallery.git'
+       git 'https://github.com/kkangwe/gallery.git'
       }
     }
      stage('Build the project') {
